@@ -1,0 +1,80 @@
+﻿
+
+
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="row mb-auto">
+    <div class="col-md-4">
+        <div class="row no-gutters border mb-4">
+            <div class="col p-4 mb-4 ">
+                <p class="card-text">
+                    Contoso University is a sample application that
+                    demonstrates how to use Entity Framework Core in an
+                    ASP.NET Core Razor Pages web app.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row no-gutters border mb-4">
+            <div class="col p-4 d-flex flex-column position-static">
+                <p class="card-text mb-auto">
+                    Razor Stránky s Entity Framework Core v ASP.NET Core.
+                </p>
+                <ol>
+                    <li><a href="https://docs.microsoft.com/aspnet/core/data/ef-rp/intro" class="stretched-link">První kapitola - úvod</a></li>
+                    <li><a href="https://docs.microsoft.com/cs-cz/aspnet/core/data/ef-rp/crud?view=aspnetcore-5.0" class="stretched-link">CRUD</a></li>
+                    <li></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row no-gutters border mb-4">
+            <div class="col p-4 d-flex flex-column">
+                <p class="card-text mb-auto">
+                    You can download the completed project from GitHub.
+                </p>
+                <p>
+                    <a href="https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/data/ef-rp/intro/samples" class="stretched-link">See project source code</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="row no-gutters border mb-12">
+            <div class="col p-12 d-flex flex-column">
+                <h1> Moje poznámky</h1>
+                <ol>
+                    <li>Entity Framework core + EF SQLServer Core do projektu</li>
+                    <li>Nahrazení Stylu Webu tj _Layout.cshtml (neboli něco jako master je tam menu a místo pro vkládání dalších stránek via RenderBody)</li>
+                    <li>Nahrazení Index.cshtml - tj toho souboru</li>
+                    <li>Přidání celého modelu do adresáře Models. (tj. Customer,Order,Product,OrderItem)</li>
+                    <li>Scaffolding nad Customer. Tj vytvoř adresář Customers (se s na konci) v Pages a dej nový Scaffold Item. Zde vyplněn CRUD a protože ještě není vygenerována třída DBContext (v adresáři Data najdeš pak ProductOrderContext.cs), tak přes + nastav její jméno tj. ProductOrderContext (za poslední tečkou). Vše ostatní ponechej a dej add.   </li>
+                    <li> connection string nastav appsetting.json </li>
+                    <li> Kupodivu je vše hotovo. Ve startup.cs už je AddDBContext() správně nastaven. Ještě jsme nastavili automatickou  Diagnostiku</li>
+                    <li> V první kapitola je krásně vysvětleno čtení přes Asyns/await. Je vhodn= pro čtení přes ToListAsync(), SaveChangesAsync(), SingleOrDefaultAsyn(), FirstOrDefaultAsync(). EF není bezpečný pro přístup z více vláken.</li>
+                    <li>CRUD. Číst je třeba eager způsobem neboli přes .Include/.ThenInclude. ThenInclude načítá v entitě co jsi předtím načetl přes .Include. V  </li>
+                    <li></li>
+                </ol>
+            </div>
+        </div>
+    </div> <div class="col-md-12">
+        <div class="row no-gutters border mb-12">
+            <div class="col p-12 d-flex flex-column">
+                <h1> Problémy během vývoje</h1>
+                <ol>
+                    <li>Neexistuje tabulka Customer - vyřešeno protože existuje tabulka Customers. V OnModelCreating() entitu Customer namapuj pomocí ToTable() na tabulku Customers.  </li>
+                    <li> Při přidávání Page/Customer je třeba zadat jiný název adresáře neř Customer (zde Customers). Jinak se pletou názvy.
+                    <li>Nelze zadat desetinou čárku ve float.</li>
+                    <li>Pro čtení je třeba pochopit Include, ThenInclude,AsNoTracking
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
