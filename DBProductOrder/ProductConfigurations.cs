@@ -7,7 +7,7 @@ namespace DBProductOrder
     {
         public ProductConfigurations()
         {
-            this.Property(s => s.ProductName)
+             this.Property(s => s.ProductName)
                 .IsRequired()
                 .HasMaxLength(50);
 
